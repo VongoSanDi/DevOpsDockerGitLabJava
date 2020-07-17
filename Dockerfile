@@ -1,5 +1,5 @@
 FROM tomcat:latest
-COPY ./out/artifacts/DevOpsDockerGitlabJava_war/DevOpsDockerGitlabJava_war.war /usr/local/tomcat/webapps/
-WORKDIR /usr/app
+WORKDIR /usr/local/tomcat/webapps
+RUN curl -O -L https://github.com/VongoSanDi/DevOpsDockerGitLabJava/tree/master/out/artifacts/DevOpsDockerGitlabJava_war.war
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "DevOpsDockerGitlabJava_war-0.0.1-SNAPSHOT.war"]
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
